@@ -1,0 +1,17 @@
+.DS_Store
+.env
+
+# Go
+api/bin/
+api/data/
+*.test
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# IDE
+.idea/
+.vscode/
+
+.semdiff/

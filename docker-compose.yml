@@ -1,0 +1,23 @@
+services:
+  api:
+    build:
+      context: ./api
+    environment:
+      PORT: "8080"
+      DB_PATH: /data/todo.db
+      COOKIE_SECURE: "false"
+    ports:
+      - "${API_PORT:-8080}:8080"
+    volumes:
+      - todo_data:/data
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - api
+    ports:
+      - "${FRONTEND_PORT:-3000}:80"
+
+volumes:
+  todo_data:
